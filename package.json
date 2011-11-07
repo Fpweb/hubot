@@ -22,7 +22,10 @@
       "node-xmpp": "0.2.11",
       "wobot": "0.3.0",
       "imap": "0.2.5",
-      "flowdock": "0.2.2"
+      "flowdock": "0.2.2",
+      "xml2js":"0.1.11"
+
+
     },
 
     "main": "./index",
