@@ -12,6 +12,7 @@ success = [
 
 ]
 
-module.exports = (robot) ->
-  robot.hear /Build.*finished with status "success"/i, (msg) ->
-    msg.send msg.random success
+# This is too annoying right now
+#module.exports = (robot) ->
+#  robot.hear /Build.*finished with status "success"/i, (msg) ->
+#    msg.send msg.random success
