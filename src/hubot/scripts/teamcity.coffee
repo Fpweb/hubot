@@ -11,7 +11,7 @@ module.exports = (robot) ->
     username = process.env.HUBOT_TEAMCITY_USERNAME
     password = process.env.HUBOT_TEAMCITY_PASSWORD
     hostname = process.env.HUBOT_TEAMCITY_HOSTNAME
-    msg.http("http://#{hostname}/app/rest/builds")
+    msg.http("https://#{hostname}/app/rest/builds")
       .query(locator: ["running:any", "count:3"].join(","))
       .headers(Authorization: "Basic #{new Buffer("#{username}:#{password}").toString("base64")}", Accept: "application/json")
       .get() (err, res, body) ->
@@ -22,7 +22,7 @@ module.exports = (robot) ->
         builds = JSON.parse(body).build.sort((a, b)-> parseInt(b.number) - parseInt(a.number))
 
         displayBuild = (msg, build) ->
-          msg.http("http://#{hostname}#{build.href}")
+          msg.http("https://#{hostname}#{build.href}")
             .headers(Authorization: "Basic #{new Buffer("#{username}:#{password}").toString("base64")}", Accept: "application/json")
             .get() (err, res, body) ->
               if err
