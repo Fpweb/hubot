@@ -34,3 +34,5 @@ module.exports = (robot) ->
           msg.send "Team city says: #{err}"
           return
         msg.send "Build #{buildName} has been queued up."
+
+# TODO: Stick a build comment on these hubot triggered builds.  Include the user name as TC uses the sys account.
