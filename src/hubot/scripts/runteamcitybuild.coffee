@@ -6,11 +6,17 @@
 # This url format triggers a build on a specific build id.
 # https://dev.fpweb.net/TeamCity/action.html?add2Queue=bt19
 #
-# run me build <build id> - Trigger a build on teamcity.
+# run me build <build id> - Trigger a build on TeamCity.
 module.exports = (robot) ->
   robot.respond /run me build( (.*))?/i, (msg) ->
     # TODO: Parse text after 'run build' into a btid or wildcard text that matches build config names.
-    buildId = msg.match[2] || "bt29"
+    buildQuery = msg.match[2]
+
+    if not buildQuery.match(/^bt/i)
+      msg.send "I don't know what '#{buildQuery}' is"
+      return
+
+    buildId = buildQuery
 
     # TODO: Get the full name of the build config for echoing later.
     buildName = buildId # for now...
