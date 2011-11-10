@@ -12,8 +12,9 @@ module.exports = (robot) ->
     # TODO: Parse text after 'run build' into a btid or wildcard text that matches build config names.
     buildQuery = msg.match[2]
 
-    if not buildQuery.match(/^bt/i)
-      msg.send "I don't know what '#{buildQuery}' is"
+    if not buildQuery.match(/^bt[0-9]+/i)
+      msg.send "I don't know what build '#{buildQuery}' is"
+      msg.send "Try a btId. Like bt28 for Zuora or bt26 for Mercury."
       return
 
     buildId = buildQuery
