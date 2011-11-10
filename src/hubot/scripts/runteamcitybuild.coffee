@@ -5,15 +5,20 @@
 
 # This url format triggers a build on a specific build id.
 # https://dev.fpweb.net/TeamCity/action.html?add2Queue=bt19
-
+#
+# run me build <build id> - Trigger a build on teamcity.
 module.exports = (robot) ->
   robot.respond /run build( (.*))?/i, (msg) ->
     # TODO: Parse text after 'run build' into a btid or wildcard text that matches build config names.
     buildId = msg.match[2] || "bt29"
 
+    # TODO: Get the full name of the build config for echoing later.
+    buildName = buildId # for now...
+
     username = process.env.HUBOT_TEAMCITY_USERNAME
     password = process.env.HUBOT_TEAMCITY_PASSWORD
     hostname = process.env.HUBOT_TEAMCITY_HOSTNAME
+
     msg.http("https://#{hostname}/action.html?add2Queue=#{buildId}")
       .query(locator: ["running:any", "count:3"].join(","))
       .headers(Authorization: "Basic #{new Buffer("#{username}:#{password}").toString("base64")}", Accept: "application/json")
@@ -21,4 +26,4 @@ module.exports = (robot) ->
         if err
           msg.send "Team city says: #{err}"
           return
-        msg.send "Your build has been triggered."
+        msg.send "Build #{buildName} has been queued up."
