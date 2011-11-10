@@ -8,7 +8,7 @@
 #
 # run me build <build id> - Trigger a build on teamcity.
 module.exports = (robot) ->
-  robot.respond /run build( (.*))?/i, (msg) ->
+  robot.respond /run me build( (.*))?/i, (msg) ->
     # TODO: Parse text after 'run build' into a btid or wildcard text that matches build config names.
     buildId = msg.match[2] || "bt29"
 
