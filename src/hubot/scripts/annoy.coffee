@@ -10,6 +10,8 @@ module.exports = (robot) ->
     name = msg.match[1]
     name = name.toLowerCase()
 
+    msg.send robot.userForName name
+
     if name is "josh"
       msg.send "I will not risk offending JRawk."
     else if user = robot.userForName name
