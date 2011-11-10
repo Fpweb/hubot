@@ -20,7 +20,7 @@ module.exports = (robot) ->
         return
 
       annoy = (seconds) ->
-        if seconds >= 128
+        if seconds >= 12800 # millis
           msg.send "I'm done annoying you #{name}."
           return
 
