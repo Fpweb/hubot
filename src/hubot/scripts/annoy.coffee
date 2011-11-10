@@ -6,7 +6,7 @@ module.exports = (robot) ->
 
   delay = (ms, func) -> setTimeout func, ms
 
-  robot.respond /annoy ([\w .-]+)$/i, (msg) ->
+  robot.respond /annoy @([\w .-]+)$/i, (msg) ->
     name = msg.match[1]
     name = name.toLowerCase()
 
