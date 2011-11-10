@@ -9,7 +9,7 @@ module.exports = (robot) ->
   robot.respond /annoy ([\w .-]+)$/i, (msg) ->
     name = msg.match[1]
 
-    if name is "Josh"
+    if name.toLowerCase() is "josh"
       msg.send "I will not risk offending JRawk."
     else if name is robot.name
       msg.send "I am so annoying I annoy myself already. I am certainly not going to do it on purpose."
@@ -24,4 +24,4 @@ module.exports = (robot) ->
 
       annoy 1
     else
-      msg.send "I can't annoy #{name}. I don't know who they are."
+      msg.send "I can't annoy #{name}. I don't know that is."
