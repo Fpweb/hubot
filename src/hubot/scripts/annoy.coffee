@@ -24,10 +24,10 @@ module.exports = (robot) ->
       delay 5000, ->
         annoy = (seconds) ->
           if seconds >= 12800 # millis
-            msg.send "I'm done annoying you #{name}."
+            msg.send "I'm done annoying you @#{name}."
             return
 
-          msg.send "Hey #{name}, are you annoyed yet?"
+          msg.send "Hey @#{name}, are you annoyed yet?"
           delay seconds*2, ->
             annoy seconds*2
 
