@@ -21,7 +21,7 @@ module.exports = (robot) ->
       msg.send "Don't cry.  It's just a joke."
       joke_state = 'none'
 
-  robot.respond /joke.*(stupid|lame|dumb|suck|bad)/i, (msg) ->
+  robot.respond /.*joke.*(stupid|lame|dumb|suck|bad).*/i, (msg) ->
     if joke_state is 'none'
       msg.send "What joke?  I'm not telling one."
     else
