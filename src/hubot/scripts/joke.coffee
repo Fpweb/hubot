@@ -42,11 +42,11 @@ module.exports = (robot) ->
 
     sing = (n) ->
       if n > 1 and not time_to_stop
-        msg.send "#{n} bottles of beer on the wall"
-        msg.send "#{n} bottle of beer"
-        msg.send "take one down"
-        msg.send "pass it around"
-        msg.send "that's #{n-1} bottles of beer on the wall!"
+        msg.send "♪ #{n} bottles of beer on the wall ♩"
+        msg.send "♬ #{n} bottles of beer ♪"
+        msg.send "take one down ♫"
+        msg.send "pass it around ♫"
+        msg.send "♩ that's #{n-1} bottles of beer on the wall! ♬"
 
         delay 1000, -> sing(n-1)
       else
