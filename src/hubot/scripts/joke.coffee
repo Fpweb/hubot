@@ -44,3 +44,5 @@ module.exports = (robot) ->
         msg.send "that's #{n-1} bottles of beer on the wall!"
 
         delay 1000, -> sing(n-1)
+
+    sing 99
