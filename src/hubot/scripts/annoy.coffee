@@ -19,15 +19,18 @@ module.exports = (robot) ->
         msg.send "I am so annoying I annoy myself already. I am certainly not going to do it on purpose."
         return
 
-      annoy = (seconds) ->
-        if seconds >= 12800 # millis
-          msg.send "I'm done annoying you #{name}."
-          return
+      msg.send "sure.  }:)"
 
-        msg.send "Hey #{name}, are you annoyed yet?"
-        delay seconds*2, ->
-          annoy seconds*2
+      delay 5000, ->
+        annoy = (seconds) ->
+          if seconds >= 12800 # millis
+            msg.send "I'm done annoying you #{name}."
+            return
 
-      annoy 1000
+          msg.send "Hey #{name}, are you annoyed yet?"
+          delay seconds*2, ->
+            annoy seconds*2
+
+        annoy 1000
     else
       msg.send "I can't annoy #{name}. I don't know who that is."
