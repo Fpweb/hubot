@@ -8,7 +8,6 @@ module.exports = (robot) ->
 
   robot.respond /annoy ([\w .-]+)$/i, (msg) ->
     name = msg.match[1]
-    name = name.toLowerCase()
 
     if name is "josh buedel"
       msg.send "I will not risk offending JRawk."
@@ -28,7 +27,7 @@ module.exports = (robot) ->
             return
 
           msg.send "Hey @#{name}, are you annoyed yet?"
-          delay seconds*2, ->
+          delay seconds, ->
             annoy seconds*2
 
         annoy 1000
