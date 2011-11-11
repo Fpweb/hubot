@@ -31,7 +31,7 @@ module.exports = (robot) ->
 
 module.exports = (robot) ->
 
-  time_to_stop = false
+  time_to_stop = true
 
   robot.respond /sing me a song.*/i, (msg) ->
     msg.send "ok"
