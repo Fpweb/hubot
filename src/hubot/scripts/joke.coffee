@@ -27,3 +27,20 @@ module.exports = (robot) ->
     else
       msg.send "Whatever.  Your face is #{msg.match[1]}."
       joke_state = 'none'
+
+
+module.exports = (robot) ->
+  robot.respond /sing me a song.*/i, (msg) ->
+    msg.send "ok"
+
+    delay = (ms, func) -> setTimeout func, ms
+
+    sing = (n) ->
+      if n > 1
+        msg.send "#{n} bottles of beer on the wall"
+        msg.send "#{n} bottle of beer"
+        msg.send "take one down"
+        msg.send "pass it around"
+        msg.send "that's #{n-1} bottles of beer on the wall!"
+
+        delay 1000, -> sing(n-1)
