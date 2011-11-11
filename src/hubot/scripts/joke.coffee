@@ -36,6 +36,8 @@ module.exports = (robot) ->
   robot.respond /sing me a song.*/i, (msg) ->
     msg.send "ok"
 
+    time_to_stop = false
+
     delay = (ms, func) -> setTimeout func, ms
 
     sing = (n) ->
