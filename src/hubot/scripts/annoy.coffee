@@ -1,6 +1,6 @@
 # Ask hubot to annoy people
 #
-# hubot annoy mark
+# @hubot annoy mark - hubot will send annoying messages if it recognizes the user.
 #
 module.exports = (robot) ->
 
