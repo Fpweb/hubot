@@ -1,4 +1,7 @@
 # listen for agilezen card numbers
+#
+# card <number> - Get the details for a card of a given number. You can call it a card or
+#                 a story. You can also choose to use the # in front of the digits or not.
 
 AgileZen = require 'node-agilezen'
 
