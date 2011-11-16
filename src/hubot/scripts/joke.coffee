@@ -1,3 +1,7 @@
+# Ask hubot to tell you a joke.
+#
+# @hubot tell me a joke - Hubot will tell a knock knock joke. It only knows one.
+#                         You can tell it the joke is lame if you want.  It'll stop.
 module.exports = (robot) ->
   joke_state = 'none'
 
@@ -28,6 +32,12 @@ module.exports = (robot) ->
       msg.send "Whatever.  Your face is #{msg.match[1]}."
       joke_state = 'none'
 
+
+# Ask hubot to sing you a song.
+#
+# @hubot sing me a song - Hubot will start singing the only song it knows.  It's an
+#                         oldie but a goldie!  You can ask it to stop too.  Just remember
+#                         to say please.
 
 module.exports = (robot) ->
 
