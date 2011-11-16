@@ -10,4 +10,9 @@ module.exports = (robot) ->
     agilezen = new AgileZen(API_KEY)
     story = msg.match[1]
     agilezen.showStory BOARD, story, (data,err) ->
-      msg.send "[#{story}] #{data.text} https://agilezen.com/project/#{BOARD}/story/#{story}"
+      if data
+        msg.send "[#{story}] #{data.text} https://agilezen.com/project/#{BOARD}/story/#{story}" 
+      else
+        msg.send "Card #{story} cannot be found"
+      
+      
