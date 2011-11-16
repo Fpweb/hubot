@@ -10,4 +10,4 @@ module.exports = (robot) ->
     agilezen = new AgileZen(API_KEY)
     story = msg.match[1]
     agilezen.showStory BOARD, story, (data,err) ->
-      msg.send "[#{story}] #{data.text}"
+      msg.send "[#{story}] #{data.text} https://agilezen.com/project/#{BOARD}/story/#{story}"
