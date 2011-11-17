@@ -14,21 +14,25 @@ HUBOT_NAME = process.env.HUBOT_NAME
 
 hipchat = new HipChat HIPCHAT_API_KEY
 
-screenshot = (msg) -> 
-  cacheBuster = Crypto.MD5 new Date()
-  imgUrl =  "www.fpweb.net?nocache=#{cacheBuster}"
+screenshot = (msg,url) -> 
+  cacheBuster = Crypto.MD5(new Date().toString())
+  imgUrl =  "#{url}?nocache=#{cacheBuster}"
   md5 = Crypto.MD5 "#{PRIVATE_KEY}+#{imgUrl}"
-  url = "http://api.url2png.com/v3/#{API_KEY}/#{md5}/400x400/#{imgUrl}"
-  thumbnail =  "<img src='#{url}' /><br/><small><a href='#{url}'>url</a></small>"
+  url2png = "http://api.url2png.com/v3/#{API_KEY}/#{md5}/300x300/#{imgUrl}"
+  thumbnail =  "<a href='http://#{url}'><img src='#{url2png}' /></a>"
   options =
     message: thumbnail
     room: HIPCHAT_ROOM_NAME
     from: HUBOT_NAME 
   hipchat.postMessage options
-    
-
-
 
 module.exports = (robot) ->
-  #URL2PNG_API_KEY = process.env.HUBOT_TEAMCITY_PASSWORD
-  robot.hear /(WWW).*production.*success/i, screenshot
+
+  robot.hear /Build.*WWW.*production.*success/i, (msg) -> 
+    screenshot msg, "www.fpweb.net"
+
+  robot.hear /Build.*Mercury.*production.*success/i, (msg) -> 
+    screenshot msg, "mercury.fpweb.net"
+
+  robot.hear /Build.*Amp360.*production.*success/i, (msg) -> 
+    screenshot msg, "amp360.fpweb.net"    
