@@ -7,6 +7,6 @@ module.exports = (robot) ->
     .get() (err, res, body) ->
       response = JSON.parse body
       if response[0]
-       msg.send response[0]["text"]
+       msg.send "https://twitter.com/#!/#{escape(username)}/status/#{response[0].id_str}"
       else
        msg.send "Error"
