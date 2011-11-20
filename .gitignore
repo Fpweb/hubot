@@ -1,3 +1,5 @@
 node_modules
 .idea/
 .project
+setup_local_environment.sh
+
