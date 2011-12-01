@@ -36,3 +36,7 @@ module.exports = (robot) ->
 
   robot.hear /Build.*Amp360.*production.*success/i, (msg) -> 
     screenshot msg, "amp360.fpweb.net"    
+
+  robot.respond /screenshot me (.*)/i, (msg) ->
+    screenshot msg, msg.match[1]
+    
