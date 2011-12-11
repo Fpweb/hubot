@@ -28,7 +28,7 @@
       "htmlparser":"1.7.3",
       "ezcrypto":"0.0.3", 
       "node-hipchat":"0.1.0", 
-      "node-agilezen":"0.0.1"
+      "node-agilezen":"0.0.4"
 
 
 

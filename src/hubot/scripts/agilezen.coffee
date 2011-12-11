@@ -12,12 +12,16 @@ module.exports = (robot) ->
   robot.hear /(?:card|story|task) #?(\d+)/i, (msg) ->
     agilezen = new AgileZen(API_KEY)
     story = msg.match[1]
-    agilezen.showStory BOARD, story, (data,err) ->
+    agilezen.showStory BOARD, story, (err,data) ->
       if data
         msg.send "[Card #{story}] #{data.text} https://agilezen.com/project/#{BOARD}/story/#{story}" 
       else
         msg.send "Card #{story} cannot be found."
 
   robot.hear /^@(?:card|story|task)(\d+) (.*)/i, (msg) ->
-  	msg.send "#{msg.match[1]} #{msg.match[2]}"
+    agilezen = new AgileZen API_KEY
+    story = msg.match[1]
+    comment = msg.match[2]
+    agilezen.commentOnStory BOARD,story, comment, (err, data) ->
+      msg.send err if err
       
