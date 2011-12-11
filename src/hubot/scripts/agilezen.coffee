@@ -9,7 +9,7 @@ BOARD   = process.env.HUBOT_AGILEZEN_BOARD
 API_KEY = process.env.HUBOT_AGILEZEN_APIKEY
 
 module.exports = (robot) ->
-  robot.hear /(?:card|story) #?(\d+)/i, (msg) ->
+  robot.hear /(?:card|story|task) #?(\d+)/i, (msg) ->
     agilezen = new AgileZen(API_KEY)
     story = msg.match[1]
     agilezen.showStory BOARD, story, (data,err) ->
@@ -17,5 +17,7 @@ module.exports = (robot) ->
         msg.send "[Card #{story}] #{data.text} https://agilezen.com/project/#{BOARD}/story/#{story}" 
       else
         msg.send "Card #{story} cannot be found."
-      
+
+  robot.hear /^@(?:card|story|task)(\d+) (.*)/i, (msg) ->
+  	msg.send "#{msg.match[1]} #{msg.match[2]}"
       
