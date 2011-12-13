@@ -17,7 +17,7 @@ module.exports = (robot) ->
     #hipchat = new HipChat HIPCHAT_API_KEY
     agilezen.showStory BOARD, story, (err,data) ->
       if data
-        msg.send "[#{story}] #{data.text} https://agilezen.com/project/#{BOARD}/story/#{story}" 
+        msg.send "##{story} :: #{data.text} https://agilezen.com/project/#{BOARD}/story/#{story}" 
       else
         msg.send "Card #{story} cannot be found."
 
