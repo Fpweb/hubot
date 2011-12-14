@@ -21,7 +21,7 @@ module.exports = (robot) ->
 
   reply = (msg, text) ->
     hipchat.postMessage
-      room: /14668_(.*)@conf.hipchat.com/.exec(msg.message.user.reply_to)[1].replace "_", " "
+      room: /\d+_(.*)@conf.hipchat.com/.exec(msg.message.user.reply_to)[1].replace "_", " "
       message: text
       from: robot.name
       color: 'green'
