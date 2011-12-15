@@ -14,7 +14,7 @@ BOARD   = process.env.HUBOT_AGILEZEN_BOARD
 API_KEY = process.env.HUBOT_AGILEZEN_APIKEY
 agilezen = new AgileZen API_KEY
 
-IGNORE_USERS = ['AgileZen','The Fpwebot']
+IGNORE_USERS = ['AgileZen','The Fpwebot', 'TeamCity']
 ECHOABLE_MESSAGE = [ /commented on/ , /reassigned/ ]
 
 module.exports = (robot) ->
