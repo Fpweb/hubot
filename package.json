@@ -1,12 +1,12 @@
 {
-  "name":        "hubot",
-  "version":     "2.1.2",
-  "author":      "hubot",
-  "keywords":    "github hubot campfire bot",
+  "name":        "hosted-hubot",
+  "version":     "0.2.0",
+  "author":      "GitHub Inc.",
+  "keywords":    "github hubot hipchat bot",
   "description": "A simple helpful Robot for your Company",
   "licenses":     [{
-    "type":       "MIT",
-    "url":        "http://github.com/github/hubot/raw/master/LICENSE"
+   "type":       "MIT",
+   "url":        "http://github.com/github/hubot/raw/master/LICENSE"
   }],
 
   "repository" : {
@@ -15,18 +15,9 @@
   },
 
   "dependencies": {
-    "coffee-script": "1.2.0",
-    "optparse": "1.0.3",
-    "scoped-http-client": "0.9.6",
-    "log": "1.2.0", 
     "hubot-hipchat": ">= 0.0.1",
-    "hubot": ">= 2.0.0"
-  },
-
-  "main": "./index",
-
-  "bin": {
-    "hubot": "./bin/hubot"
+    "hubot": ">= 2.0.0",
+    "hubot-scripts": ">= 2.0.2",
+    "optparse": "1.0.3"
   }
 }
-
