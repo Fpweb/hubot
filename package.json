@@ -18,7 +18,9 @@
     "coffee-script": "1.2.0",
     "optparse": "1.0.3",
     "scoped-http-client": "0.9.6",
-    "log": "1.2.0"
+    "log": "1.2.0", 
+    "hubot-hipchat": ">= 0.0.1",
+    "hubot": ">= 2.0.0",
   },
 
   "main": "./index",
