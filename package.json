@@ -15,6 +15,7 @@
   },
 
   "dependencies": {
+    "node-stringprep": "0.1.2",
     "hubot-hipchat": ">= 0.0.1",
     "hubot": ">= 2.0.0",
     "hubot-scripts": ">= 2.0.2",
