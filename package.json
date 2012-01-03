@@ -20,7 +20,7 @@
     "scoped-http-client": "0.9.6",
     "log": "1.2.0", 
     "hubot-hipchat": ">= 0.0.1",
-    "hubot": ">= 2.0.0",
+    "hubot": ">= 2.0.0"
   },
 
   "main": "./index",
