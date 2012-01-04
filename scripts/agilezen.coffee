@@ -11,12 +11,15 @@ hipchat = new HipChat HIPCHAT_API_KEY
 
 AgileZen = require 'node-agilezen'
 BOARD   = process.env.HUBOT_AGILEZEN_BOARD
+PLANNING_BOARD = process.env.HUBOT_AGILEZEN_BOARD
 API_KEY = process.env.HUBOT_AGILEZEN_APIKEY
 agilezen = new AgileZen API_KEY
 
 IGNORE_USERS = ['AgileZen','The Fpwebot', 'TeamCity']
 ECHOABLE_MESSAGE = [ /commented on/ , /reassigned/ ]
 
+# card #xxx or just #xxx - see a summary of the card
+# pb#xxx - see a summary the planning board card
 module.exports = (robot) ->
 
   reply = (msg, text) ->
@@ -37,15 +40,17 @@ module.exports = (robot) ->
         from: robot.name
         color: 'green'
 
-  robot.hear /(?:card #?|story #?|task #?|#)(\d+)/i, (msg) ->
-    agilezen = new AgileZen(API_KEY)
-    story = msg.match[1]
-
+  robot.hear /(pb|bl|p)?\s?(?:card #?|story #?|task #?|#)(\d+)/i, (msg) ->
+    
     return if _.include IGNORE_USERS, msg.message.user.name
 
-    agilezen.showStory BOARD, story, (err,data) ->
+    agilezen = new AgileZen(API_KEY)
+    story = msg.match[2]
+    board = if msg.match[1] then PLANNING_BOARD else BOARD 
+
+    agilezen.showStory board, story, (err,data) ->
       if data
-        reply msg, "<a href='https://agilezen.com/project/#{BOARD}/story/#{story}'>##{story}</a> #{data.text} "
+        reply msg, "<a href='https://agilezen.com/project/#{board}/story/#{story}'>##{story}</a> #{data.text} "
       else
         msg.send "Card #{story} cannot be found."
 
