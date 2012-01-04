@@ -11,7 +11,7 @@ hipchat = new HipChat HIPCHAT_API_KEY
 
 AgileZen = require 'node-agilezen'
 BOARD   = process.env.HUBOT_AGILEZEN_BOARD
-PLANNING_BOARD = process.env.HUBOT_AGILEZEN_BOARD
+PLANNING_BOARD = process.env.HUBOT_AGILEZEN_PLANNING_BOARD
 API_KEY = process.env.HUBOT_AGILEZEN_APIKEY
 agilezen = new AgileZen API_KEY
 
@@ -40,7 +40,7 @@ module.exports = (robot) ->
         from: robot.name
         color: 'green'
 
-  robot.hear /(pb|bl|p)?\s?(?:card #?|story #?|task #?|#)(\d+)/i, (msg) ->
+  robot.hear /(pl|pb|bl|p)?\s?(?:card #?|story #?|task #?|#)(\d+)/i, (msg) ->
     
     return if _.include IGNORE_USERS, msg.message.user.name
 
