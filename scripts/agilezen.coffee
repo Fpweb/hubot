@@ -32,14 +32,18 @@ module.exports = (robot) ->
       color: 'green'
 
 
+  # echo the AgileZen board messages to our main room
   robot.hear /#(\d+)/i, (msg) ->
     text = msg.message.text
-    if msg.message.user.name == "AgileZen" and _.any ECHOABLE_MESSAGE, ((r) -> r.test text)
-      hipchat.postMessage
-        room: ECHO_TARGET_ROOM
-        message: text
-        from: robot.name
-        color: 'green'
+    return unless msg.message.user.name == "AgileZen"    
+    return unless _.any ECHOABLE_MESSAGE, ((r) -> r.test text)
+    return if /\[[a-f0-9]{7}\]/.test text  
+    
+    hipchat.postMessage
+      room: ECHO_TARGET_ROOM
+      message: text
+      from: robot.name
+      color: 'green'
 
   robot.hear /(pl|pb|bl|p)?\s?(?:card #?|story #?|task #?|#)(\d+)/i, (msg) ->
     
