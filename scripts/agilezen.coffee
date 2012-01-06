@@ -17,6 +17,7 @@ agilezen = new AgileZen API_KEY
 
 IGNORE_USERS = ['AgileZen','The Fpwebot', 'TeamCity', 'Fpwebot bot']
 ECHOABLE_MESSAGE = [ /commented on/ , /reassigned/ ]
+ECHO_TARGET_ROOM = process.env.HUBOT_AGILEZEN_ECHO_TARGET_ROOM
 
 # card #xxx or just #xxx - see a summary of the card
 # pb#xxx - see a summary the planning board card
@@ -35,7 +36,7 @@ module.exports = (robot) ->
     text = msg.message.text
     if msg.message.user.name == "AgileZen" and _.any ECHOABLE_MESSAGE, ((r) -> r.test text)
       hipchat.postMessage
-        room: "Fpweb.net"
+        room: ECHO_TARGET_ROOM
         message: text
         from: robot.name
         color: 'green'
