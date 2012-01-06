@@ -15,7 +15,7 @@ PLANNING_BOARD = process.env.HUBOT_AGILEZEN_PLANNING_BOARD
 API_KEY = process.env.HUBOT_AGILEZEN_APIKEY
 agilezen = new AgileZen API_KEY
 
-IGNORE_USERS = ['AgileZen','The Fpwebot', 'TeamCity']
+IGNORE_USERS = ['AgileZen','The Fpwebot', 'TeamCity', 'Fpwebot bot']
 ECHOABLE_MESSAGE = [ /commented on/ , /reassigned/ ]
 
 # card #xxx or just #xxx - see a summary of the card
