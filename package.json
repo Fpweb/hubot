@@ -24,7 +24,8 @@
     "ezcrypto":"0.0.3", 
     "node-hipchat":"0.1.0", 
     "node-agilezen":"0.0.4", 
-    "underscore":"1.2.3"
+    "underscore":"1.2.3", 
+    "twss":"0.1.1"
 
   }
 }
