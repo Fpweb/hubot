@@ -1,5 +1,7 @@
 
 twss = require 'twss'
+#twss.algo = 'knn'
 module.exports = (robot) ->
-  robot.hear /(.*)/i, (msg) ->
-    msg.reply "That's what she said." if twss.is msg.message.text
+  # The classifier is not accurate enough yet. 
+  #  robot.hear /(.*)/i, (msg) ->
+  #  msg.reply "That's what she said." if twss.is msg.message.text
