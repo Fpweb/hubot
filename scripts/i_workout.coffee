@@ -2,7 +2,7 @@
 module.exports = (robot) ->
   #obsceneImagesOfLmfao = []
   sighCount = 0
-  robot.hear /sigh/i, (msg) ->
+  robot.hear /\*?sigh\*?/i, (msg) ->
     sighCount = ++sighCount % 4
     msg.reply 'Girl look at that body.' 
     msg.reply 'uh...uh.uh.I work out' if sighCount == 3
