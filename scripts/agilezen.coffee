@@ -43,7 +43,7 @@ module.exports = (robot) ->
       room: ECHO_TARGET_ROOM
       message: text
       from: robot.name
-      color: 'green'
+      color: 'blue'
 
   robot.hear /(pl|pb|bl|p)?\s?(?:card #?|story #?|task #?|#)(\d+)/i, (msg) ->
     
